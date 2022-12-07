@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkdash_dar_react=self.webpackChunkdash_dar_react||[]).push([[220],{220:function(t,e,n){n.r(e);var a=n(9439),s=n(2791),r=n(4238),c=n(1549),i=n(7689),u=n(184);e.default=function(){var t=(0,s.useState)(0),e=(0,a.Z)(t,2),n=e[0],o=e[1],d=(0,i.s0)();return(0,u.jsx)(u.Fragment,{children:(0,u.jsx)(r.mQ,{index:n,setIndex:o,tabs:[{title:"Obyektlar",content:(0,u.jsx)(r.r8,{})}],tabRightContent:[{icon:(0,u.jsx)(c.Z,{style:{fontSize:"24px"}}),onClick:function(){d("/create-object")}}]})})}}}]);
+//# sourceMappingURL=220.fc302892.chunk.js.map
