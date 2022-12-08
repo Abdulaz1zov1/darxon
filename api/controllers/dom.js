@@ -3,7 +3,7 @@ const Dom = require('../madels/dom');
 
 const getAllCategory = async (req, res) => {
     try {
-        let category = await Dom.find().populate(["object", "category"])
+        let category = await Dom.find().populate(["category"])
         res.status(201).send(category)
     } catch (error) {
         console.log(error);

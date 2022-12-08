@@ -92,6 +92,11 @@ const del = async (req, res) => {
 
 const updet = async (req, res) => {
     try {
+        const rasmla = req.files
+        let photos = []
+        rasmla.forEach(photo =>
+            photos.push(`http://185.217.131.80:5030/${photo.path.slice(7)}`)
+        )
         let category = await Category.findByIdAndUpdate(req.params.id, {
             ...req.body, photo: photos
         })

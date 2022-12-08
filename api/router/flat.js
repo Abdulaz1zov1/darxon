@@ -1,6 +1,6 @@
 const {Router} = require('express');
 const router = Router()
-const { create, getAllFlat, del, updet, getQuery, getAllCategory } = require('../controllers/flat');
+const { create, getAllFlat, del, updet, getQuery, getByIdCategory } = require('../controllers/flat');
 
 const multer = require('multer')
 const path = require('path')
@@ -19,9 +19,9 @@ const upload = multer({ storage })
 
 router.get('/', getAllFlat);
 
-router.get('/:id', getAllCategory);
+router.get('/:id', getByIdCategory);
 
-router.post('/',upload.array('photo', 20), create);
+router.post('/', upload.array('photo', 20), create);
 
 router.get("/query", getQuery)
 
