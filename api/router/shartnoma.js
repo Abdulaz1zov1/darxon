@@ -1,9 +1,11 @@
 const {Router} = require('express');
 const router = Router()
-const { create, getAllCategory, del, updet, getQuery } = require('../controllers/shartnoma');
+const { create, getAllCategory, del, updet, getQuery, getByIdCategory } = require('../controllers/shartnoma');
 
 
 router.get('/', getAllCategory);
+
+router.get('/:id', getByIdCategory);
 
 router.post('/', create);
 

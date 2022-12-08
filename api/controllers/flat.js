@@ -26,10 +26,22 @@ const getAllFlat = async (req, res) => {
 }
 
 
+
+const getByIdCategory = async (req, res) => {
+    try {
+        const result = await Flat.findById({ _id: req.params.id })
+        res.status(200).json(result)
+    } catch (error) {
+        console.log(error);
+        res.status(404).send("malumot topilmdi xatolik")
+    }
+}
+
+
 const create = async (req, res)=> {
     const rasmla = req.files
     let photos = []
-    rasmla.forEach(photo => photos.push(`http://localhost:5030/${photo.path.slice(7)}`))
+    rasmla.forEach(photo => photos.push(`http://185.217.131.80:5030/${photo.path.slice(7)}`))
     try {
         let { dom, xona_soni,umumiy_kv,prixoshka,zal,xojatxona_1,xojatxona_2,vanna_1,vanna_2,spalniy,detskiy,kuxniya, status} = req.body
         status = status || 0
@@ -124,4 +136,4 @@ const del = async (req, res) => {
 
 }
 
-module.exports = { create, getAllFlat, del, updet, getQuery }
+module.exports = { create, getAllFlat, del, updet, getQuery, getByIdCategory }

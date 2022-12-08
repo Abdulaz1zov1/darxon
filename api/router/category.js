@@ -1,6 +1,6 @@
 const {Router} = require('express');
 const router = Router()
-const { create, getAllCategory, del, updet, getQuery } = require('../controllers/category');
+const { create, getAllCategory, del, updet, getQuery, getByIdCategory } = require('../controllers/category');
 const multer = require('multer')
 const path = require('path')
 
@@ -18,6 +18,8 @@ const upload = multer({ storage })
 
 
 router.get('/', getAllCategory);
+
+router.get('/:id', getByIdCategory);
 
 router.post('/',upload.array('photo', 20), create);
 

@@ -23,6 +23,18 @@ const getAllCategory = async (req, res) => {
 }
 
 
+
+const getByIdCategory = async (req, res) => {
+    try {
+        const result = await Shartnoma.findById({ _id: req.params.id })
+        res.status(200).json(result)
+    } catch (error) {
+        console.log(error);
+        res.status(404).send("malumot topilmdi xatolik")
+    }
+}
+
+
 const create = async (req, res)=> {
     try {
         const category = new Shartnoma({ ...req.body })
@@ -102,4 +114,4 @@ const del = async (req, res) => {
 
 }
 
-module.exports = { create, getAllCategory, del, updet,getQuery }
+module.exports = { create, getAllCategory, del, updet,getQuery, getByIdCategory }
