@@ -2,6 +2,7 @@ const mongoose = require("mongoose");
 
 const ShartnomaSchema = mongoose.Schema(
   {
+    photo: Array,
     flat: {type: mongoose.Schema.ObjectId, ref: "Flat"},
     number: String,
     inn: {type: String, default: ""},

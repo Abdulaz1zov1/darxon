@@ -15,6 +15,13 @@ app.use(cors())
 app.use(routerList)
 
 
+
+
+
+
+
+
+
 const start = async ()=> {
     try {
         await mongoose.connect(config.get("MONGODB_URI"))

@@ -41,7 +41,7 @@ const getByIdCategory = async (req, res) => {
 const create = async (req, res)=> {
     const rasmla = req.files
     let photos = []
-    rasmla.forEach(photo => photos.push(`http://185.217.131.80:5030/${photo.path.slice(7)}`))
+    rasmla.forEach(photo => photos.push(`http://localhost:5030/${photo.path.slice(7)}`))
     try {
         let { dom, xona_soni,umumiy_kv,prixoshka,zal,xojatxona_1,xojatxona_2,vanna_1,vanna_2,spalniy,detskiy,kuxniya, status} = req.body
         status = status || 0
@@ -113,7 +113,7 @@ const updet = async (req, res) => {
         const rasmla = req.files
         let photos = []
         rasmla.forEach(photo =>
-            photos.push(`http://185.217.131.80:5030/${photo.path.slice(7)}`)
+            photos.push(`http://localhost:5030/${photo.path.slice(7)}`)
         )
         let flat = await Flat.findByIdAndUpdate(req.params.id, {
             ...req.body, photo: photos

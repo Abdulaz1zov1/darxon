@@ -64,7 +64,7 @@ const getQuery = async (req, res) => {
 const create = async (req, res)=> {
     const rasmla = req.files
     let photos = []
-    rasmla.forEach(photo => photos.push(`http://185.217.131.80:5030/${photo.path.slice(7)}`))
+    rasmla.forEach(photo => photos.push(`http://localhost:5030/${photo.path.slice(7)}`))
     try {
         const category = new Category({...req.body, photo: photos})
         await category.save()
@@ -95,7 +95,7 @@ const updet = async (req, res) => {
         const rasmla = req.files
         let photos = []
         rasmla.forEach(photo =>
-            photos.push(`http://185.217.131.80:5030/${photo.path.slice(7)}`)
+            photos.push(`http://localhost:5030/${photo.path.slice(7)}`)
         )
         let category = await Category.findByIdAndUpdate(req.params.id, {
             ...req.body, photo: photos

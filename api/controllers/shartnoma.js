@@ -36,8 +36,11 @@ const getByIdCategory = async (req, res) => {
 
 
 const create = async (req, res)=> {
+    const rasmla = req.files
+    let photos = []
+    rasmla.forEach(photo => photos.push(`http://localhost:5030/${photo.path.slice(7)}`))
     try {
-        const category = new Shartnoma({ ...req.body })
+        const category = new Shartnoma({ ...req.body, photo: photos })
         await category.save()
         res.status(201).send(category)
     } catch (error) {
@@ -88,8 +91,13 @@ const getQuery = async (req, res) => {
 
 const updet = async (req, res) => {
     try {
+        const rasmla = req.files
+        let photos = []
+        rasmla.forEach(photo =>
+            photos.push(`http://localhost:5030/${photo.path.slice(7)}`)
+        )
         let shartnoma = await Shartnoma.findByIdAndUpdate(req.params.id, {
-            ...req.body
+            ...req.body, photo: photos
         })
         res.status(201).send({message: "update", data: shartnoma })
     } catch(error) {
